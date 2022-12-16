@@ -1,3 +1,9 @@
+image: sikalabs/ci
+
+foo:
+  script:
+    - slu --help
+
 # .gitlab-ci.yml
 test:
   image: ondrejsika/pytest
