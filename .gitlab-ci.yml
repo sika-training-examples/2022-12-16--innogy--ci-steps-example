@@ -1,10 +1,14 @@
 # .gitlab-ci.yml
 
-before_script:
-  - apk add python3
-
 job1:
-  script: python hello.py
+  script:
+    - echo deploy!
+    - echo test!
+    - echo cleanup!
 
 job2:
-  script: python hello.py
+  script:
+    - echo deploy!
+    - echo test!
+  after_script:
+    - echo cleanup!
