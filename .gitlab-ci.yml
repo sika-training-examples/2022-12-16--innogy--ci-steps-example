@@ -1,7 +1,7 @@
 # .gitlab-ci.yml
 
 before_script:
-  - apk add python
+  - apk add python3
 
 job1:
   script: python hello.py
