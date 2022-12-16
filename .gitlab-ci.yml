@@ -1,11 +1,13 @@
 Build A:
   script: echo Build A ...
   rules:
-    - changes:
-        - a/**
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID
+      changes:
+        - a/**/*
 
 Build B:
   script: echo Build B ...
   rules:
-    - changes:
-        - b/**
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID
+      changes:
+        - b/**/*
