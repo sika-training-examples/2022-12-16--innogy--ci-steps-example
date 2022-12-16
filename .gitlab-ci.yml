@@ -1,8 +1,7 @@
 image: node:16
 
-cache:
-  paths:
-    - .yarn-cache
+variables:
+  GIT_CLEAN_FLAGS: -ffdx -e .yarn-cache
 
 job:
   script:
