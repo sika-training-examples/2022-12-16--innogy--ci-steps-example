@@ -1,8 +1,10 @@
 variables:
   TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
-  IMAGE: $CI_REGISTRY_IMAGE:$TAG
+  IMAGE_PROD: $CI_REGISTRY_IMAGE/prod:$TAG
+  IMAGE_DEV: $CI_REGISTRY_IMAGE/dev:$TAG
 
 
 job:
-  script: |
-    echo docker build $IMAGE
+  script:
+    - echo docker build $IMAGE_PROD
+    - echo docker build $IMAGE_DEV
