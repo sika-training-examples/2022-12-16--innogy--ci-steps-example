@@ -1,3 +1,6 @@
+pipeline_foo:
+  trigger: ondrejsika/foo
+
 pipeline_a:
   trigger:
     include: a/.gitlab-ci.yml
