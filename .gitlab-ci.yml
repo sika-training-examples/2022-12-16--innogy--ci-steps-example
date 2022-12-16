@@ -8,3 +8,6 @@ bar:
   script: echo bar build ...
   rules:
     - if: $CI_PIPELINE_SOURCE == "schedule"
+
+baz:
+  script: echo xxxc
