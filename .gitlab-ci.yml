@@ -1,43 +1,8 @@
 # .gitlab-ci.yml
-
-stages:
-  - infracost
-  - build
-  - test
-
-infracost:
-  stage: infracost
+test:
+  image: ondrejsika/pytest
   script:
-    - echo ...
+    - pytest --junitxml=report.xml
   artifacts:
-    paths:
-      - report.html
-
-build html:
-  stage: build
-  script:
-    - mkdir -p out
-    - echo '<h1>Hello World!</h1>' > out/index.html
-  artifacts:
-    paths:
-      - out
-
-test html:
-  stage: test
-  script:
-    - cat out/index.html
-
-
-build go:
-  stage: build
-  image: golang:1.19
-  script:
-    - go build hello.go
-  artifacts:
-    paths:
-      - hello
-
-test go:
-  stage: test
-  script:
-    - ./hello
+    reports:
+      junit: report.xml
