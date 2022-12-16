@@ -1,8 +1,17 @@
 # .gitlab-ci.yml
 
 stages:
+  - infracost
   - build
   - test
+
+infracost:
+  stage: infracost
+  script:
+    - echo ...
+  artifacts:
+    paths:
+      - report.html
 
 build html:
   stage: build
