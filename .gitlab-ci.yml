@@ -1,7 +1,18 @@
 image: sikalabs/ci
 
+variables:
+  GIT_CLEAN_FLAGS: -ffdx -e .kaniko-cache
+
 job:
+  image:
+    name: gcr.io/kaniko-project/executor:v1.9.0-debug
+    entrypoint: [""]
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - docker build -t $CI_REGISTRY_IMAGE .
-    - docker push $CI_REGISTRY_IMAGE
+    - /kaniko/executor
+      --context .
+      --dockerfile ./Dockerfile
+      --destination $CI_REGISTRY_IMAGE
+      --cache=true
+      --cache-dir .kaniko-cache
+      --cache-repo $CI_REGISTRY_IMAGE/cache
