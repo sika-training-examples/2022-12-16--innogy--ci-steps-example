@@ -1,3 +1,7 @@
-job:
-  image: python:3-slim
-  script: python hello.py
+foo:
+  script: echo Hello World!
+
+bar:
+  script:
+    - echo Hello World!
+    - echo Ahoj Svete!
