@@ -1,9 +1,6 @@
 # .gitlab-ci.yml
 
-stages:
-  - build
-  - deploy
-
 include:
+  - .gitlab-ci-stages.yml
   - .gitlab-ci-build.yml
   - .gitlab-ci-deploy.yml
