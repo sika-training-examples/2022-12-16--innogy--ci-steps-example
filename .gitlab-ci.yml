@@ -1,5 +1,9 @@
 image: node:16
 
+cache:
+  paths:
+    - .yarn-cache
+
 job:
   script:
     - yarn install --frozen-lockfile --cache-folder .yarn-cache --prefer-offline
