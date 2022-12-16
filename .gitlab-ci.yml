@@ -13,3 +13,4 @@ test1:
 test2:
   stage: test
   script: echo Test2!
+  needs: []
