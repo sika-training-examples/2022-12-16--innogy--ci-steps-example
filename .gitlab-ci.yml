@@ -1,7 +1,15 @@
-foo:
-  script: echo Hello World!
+stages:
+  - build
+  - test
 
-bar:
-  script:
-    - echo Hello World!
-    - echo Ahoj Svete!
+build:
+  stage: build
+  script: echo Build!
+
+test1:
+  stage: test
+  script: echo Test1!
+
+test2:
+  stage: test
+  script: echo Test2!
